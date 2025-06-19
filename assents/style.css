@@ -1,0 +1,129 @@
+.historia-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  position: relative;
+}
+
+.texto-inicial {
+  text-align: center;
+  transition: opacity 1.2s ease-in-out, height 1s ease-in-out;
+  opacity: 1;
+}
+
+.texto-inicial.hidden {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.texto-inicial p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  transition: margin 0.8s ease-in-out;
+}
+
+.btn-historia {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-historia:hover {
+  background-color: #2ecc71;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.historia-content {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 1.2s ease-in-out, height 0.8s ease-in-out;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.historia-content.visible {
+  opacity: 1;
+  height: auto;
+  overflow-y: auto;
+  max-height: 500px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Estilo para o conteúdo da história */
+.historia-content p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.historia-content h2 {
+  color: #27ae60;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+/* Botão Voltar */
+.btn-voltar {
+  background-color: #7f8c8d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-voltar:hover {
+  background-color: #95a5a6;
+  transform: translateX(-3px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-voltar::before {
+  content: "←";
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-voltar:hover::before {
+  transform: translateX(-3px);
+}
+
+/* Melhorias para responsividade */
+@media (max-width: 600px) {
+  .texto-inicial p {
+    font-size: 1.3rem;
+  }
+  
+  .btn-historia, .btn-voltar {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+  
+  .historia-content.visible {
+    max-height: 70vh;
+    padding: 15px;
+  }
+  
+  .historia-content h2 {
+    font-size: 1.3rem;
+  }
+}

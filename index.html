@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bloom- Floricultura</title>
+</head>
+<body>
+    <!--
+    coisas mais importantes para fazer:
+
+    pesquisar como fazer o sistema de carrinho funcional e a parte de produtos favoritos
+
+    fazer a seção de compras
+
+    fazer a seção de historia
+
+    fazer a seção de localização usando API
+    -->
+    <div class="container-bloom">
+      <nav class="nav">
+        <div class="nav-container">
+          <div class="logo-bloom" aria-label="Logo Bloom"></div>
+          
+          <div class="nav-links">
+            <a href="#" class="nav-link">Suporte</a>
+            <a href="#" class="nav-link">Login</a>
+            
+            <div class="nav-icons">
+              <button aria-label="Carrinho de compras" class="icon-cart"></button>
+              <button aria-label="Favoritos" class="icon-favorite"></button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <section class="video-section">
+        <video autoplay muted loop class="video-bloom">
+          <source src="assents/video/video-bloom.mp4" type="video/mp4">
+        </video>
+      </section>
+
+      <section class="benefits-section">
+        <div class="benefits-container">
+          <div class="benefits-grid">
+            <div class="benefit-item">
+              <div class="benefit-icon icon-delivery"></div>
+              <h2 class="benefit-title">Entrega Rápida</h2>
+              <p class="benefit-description">Receba flores no mesmo dia e encante com elegância, agilidade e comodidade.</p>
+            </div>
+            
+            <div class="benefit-item">
+              <div class="benefit-icon icon-freight"></div>
+              <h2 class="benefit-title">Frete Grátis</h2>
+              <p class="benefit-description">Desfrute da conveniência de frete grátis em entregas realizadas no período comercial.</p>
+            </div>
+            
+            <div class="benefit-item">
+              <div class="benefit-icon icon-card"></div>
+              <h2 class="benefit-title">Tudo em 3x sem juros</h2>
+              <p class="benefit-description">Facilidade no pagamento: desfrute da flexibilidade e praticidade das nossas condições exclusivas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-category">
+        <h2 class="category-title">Nossos produtos</h2>
+        <div class="categories-grid">
+          <a class="category-card">
+            <div class="category-image">
+              <img src="assents/flores/Rosas-colombianas/Buquê de Rosas Colombianas vermelho.png" alt="Rosas Colombianas" loading="lazy">
+            </div>
+            <h3 class="category-name">Rosas Colombianas</h3>
+          </a>
+
+          <a class="category-card">
+            <div class="category-image">
+              <img src="assents/flores/orquideas/Buquê Premium de Orq mista.png" alt="Rosas Colombianas" loading="lazy">
+            </div>
+            <h3 class="category-name">Orquideas</h3>
+          </a>
+
+          <a class="category-card">
+            <div class="category-image">
+              <img src="assents/flores/peonias/Buquê de Peônias pink.png" alt="Rosas Colombianas" loading="lazy">
+            </div>
+            <h3 class="category-name">Peonias</h3>
+          </a>
+
+          <a class="category-card">
+            <div class="category-image">
+              <img src="assents/flores/lirios-rosas/Buquê de Lírios e Rosa branca.png" alt="Rosas Colombianas" loading="lazy">
+            </div>
+            <h3 class="category-name">Liríos e Rosas</h3>
+          </a>
+
+          <a class="category-card">
+            <div class="category-image">
+              <img src="assents/flores/caixas-luxo/Buquê em Caixa Luxuo.png" alt="Rosas Colombianas" loading="lazy">
+            </div>
+            <h3 class="category-name">Caixas de Luxo</h3>
+          </a>
+
+          <a class="category-card">
+            <div class="category-image">
+              <img src="assents/flores/Rosas-colombianas/Buquê de Rosas Colombianas vermelho.png" alt="Rosas Colombianas" loading="lazy">
+            </div>
+            <h3 class="category-name">Personalizado</h3>
+          </a>
+        </div>    
+      </section>
+    </div>
+
+    <div class="historia-container">
+      <div class="texto-inicial" id="textoInicial">
+        <p>Me permita contar a história da Bloom...</p>
+        <button id="btnContarHistoria" class="btn-historia">Contar História</button>
+      </div>
+      
+      <div class="historia-content" id="historiaContent">
+        <!-- A história será carregada aqui dinamicamente -->
+        <button id="btnVoltar" class="btn-voltar"> Voltar</button>
+        <div id="conteudoHistoria"></div>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
