@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="assents/style.css">
     <title>Bloom- Floricultura</title>
 </head>
 <body>
@@ -14,9 +15,10 @@
 
     fazer a seção de compras
 
-    fazer a seção de historia
+    mudar a palavra WHATSAPP do banner de personalizados para WHATSZAP
 
-    fazer a seção de localização usando API
+    fazer uma capa para a seção de categorias na parte de personalizados
+      mexer nos links
     -->
     <div class="container-bloom">
       <nav class="nav">
@@ -111,21 +113,177 @@
           </a>
         </div>    
       </section>
+
+      <section class="products-section">
+      
+      </section>
+      
+      <section class="orders-personalized">
+        <div class="container-orders-personalized">
+          <div class="banner-orders-personalized"></div>
+          <a href="#" class="icon-whatszap-orders-personalized"></a>
+          <div class="content-text-orders-personalized">
+            <p>Seu momento merece o extraorginário. Sabia como podemos encantar você, entre em contato.</p>
+            <a href="#">Mandar Mensagem</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-history-bloom">
+        <div class="content-historia">
+          <div class="texto-inicial" id="textoInicial">
+            <p>Me permita contar a história da Bloom...</p>
+            <button id="btnContarHistoria" class="btn-historia">Contar História</button>
+          </div>
+          <div class="historia-content" id="historiaContent">
+            <div id="conteudoHistoria"></div>
+            <button id="btnVoltar" class="btn-voltar">Voltar</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="localize">
+        <div class="location">
+          <div class="location-selector">
+            <h2>Aqui, flores ganham vida em um ambiente de puro encanto. Venha nos conhecer pessoalmente.</h2>
+            <p>Selecione sua localização</p>
+              
+            <div class="select-group">
+                <select id="estado" required>
+                    <option value=""></option>
+                    <option value="SP">São Paulo</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                </select>
+                <label for="estado">Estado</label>
+            </div>
+              
+            <div class="select-group">
+                <select id="cidade" disabled required>
+                    <option value=""></option>
+                </select>
+                <label for="cidade">Cidade</label>
+            </div>
+            
+            <div id="map"></div>
+          </div>
+        </div>
+    </section>
+
     </div>
 
-    <div class="historia-container">
-      <div class="texto-inicial" id="textoInicial">
-        <p>Me permita contar a história da Bloom...</p>
-        <button id="btnContarHistoria" class="btn-historia">Contar História</button>
-      </div>
-      
-      <div class="historia-content" id="historiaContent">
-        <!-- A história será carregada aqui dinamicamente -->
-        <button id="btnVoltar" class="btn-voltar"> Voltar</button>
-        <div id="conteudoHistoria"></div>
-      </div>
-    </div>
     
-    <script src="script.js"></script>
+    <script src="assents/script.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+     <script>
+      const cidadesComCoordenadas = {
+              'SP': [
+                  { nome: 'São Paulo', lat: -23.5505, lng: -46.6333 },
+                  { nome: 'Campinas', lat: -22.9056, lng: -47.0608 },
+                  { nome: 'Santos', lat: -23.9608, lng: -46.3336 }
+              ],
+              'RJ': [
+                  { nome: 'Rio de Janeiro', lat: -22.9068, lng: -43.1729 },
+                  { nome: 'Niterói', lat: -22.8837, lng: -43.1034 },
+                  { nome: 'Petrópolis', lat: -22.5050, lng: -43.1789 }
+              ],
+              'MG': [
+                  { nome: 'Belo Horizonte', lat: -19.9167, lng: -43.9345 },
+                  { nome: 'Uberlândia', lat: -18.9186, lng: -48.2772 },
+                  { nome: 'Juiz de Fora', lat: -21.7645, lng: -43.3502 }
+              ],
+              'RS': [
+                  { nome: 'Porto Alegre', lat: -30.0331, lng: -51.2300 },
+                  { nome: 'Caxias do Sul', lat: -29.1678, lng: -51.1788 },
+                  { nome: 'Pelotas', lat: -31.7719, lng: -52.3425 }
+              ]
+          };
+
+          // Variáveis globais
+          let map;
+          let marker = null;
+
+          // Inicialização quando o DOM estiver carregado
+          document.addEventListener('DOMContentLoaded', function() {
+              // Inicializa o mapa
+              map = L.map('map').setView([-15.795, -47.891], 4);
+              L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              }).addTo(map);
+
+              // Configura eventos
+              const estadoSelect = document.getElementById('estado');
+              const cidadeSelect = document.getElementById('cidade');
+              
+              estadoSelect.addEventListener('change', function() {
+                  if (this.value) {
+                      // Ativa o label flutuante
+                      this.classList.add('has-value');
+                      
+                      // Carrega cidades
+                      carregarCidades();
+                  } else {
+                      this.classList.remove('has-value');
+                  }
+              });
+              
+              cidadeSelect.addEventListener('change', function() {
+                  if (this.value) {
+                      this.classList.add('has-value');
+                      atualizarMapa();
+                  } else {
+                      this.classList.remove('has-value');
+                  }
+              });
+          });
+
+          function carregarCidades() {
+              const estadoSelect = document.getElementById('estado');
+              const cidadeSelect = document.getElementById('cidade');
+              
+              const estado = estadoSelect.value;
+              
+              // Limpa as opções atuais
+              cidadeSelect.innerHTML = '<option value=""></option>';
+              cidadeSelect.disabled = false;
+              
+              // Adiciona as cidades do estado selecionado
+              cidadesComCoordenadas[estado].forEach(cidade => {
+                  const option = document.createElement('option');
+                  option.value = cidade.nome;
+                  option.textContent = cidade.nome;
+                  option.setAttribute('data-lat', cidade.lat);
+                  option.setAttribute('data-lng', cidade.lng);
+                  cidadeSelect.appendChild(option);
+              });
+              
+              // Força a atualização do label
+              cidadeSelect.dispatchEvent(new Event('change'));
+          }
+
+          function atualizarMapa() {
+              const cidadeSelect = document.getElementById('cidade');
+              const selectedOption = cidadeSelect.options[cidadeSelect.selectedIndex];
+              
+              if (selectedOption.value) {
+                  const lat = selectedOption.getAttribute('data-lat');
+                  const lng = selectedOption.getAttribute('data-lng');
+                  
+                  // Atualiza a visualização do mapa
+                  map.setView([lat, lng], 12);
+                  
+                  // Remove o marcador anterior se existir
+                  if (marker) {
+                      map.removeLayer(marker);
+                  }
+                  
+                  // Adiciona um novo marcador
+                  marker = L.marker([lat, lng]).addTo(map)
+                      .bindPopup(`<b>${selectedOption.value}</b>`)
+                      .openPopup();
+              }
+          }
+    </script>
 </body>
 </html>

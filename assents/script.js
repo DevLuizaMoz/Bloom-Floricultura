@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.nav');
+    const triggerPoint = 70;
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > triggerPoint) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    if (window.scrollY > triggerPoint) {
+        navbar.classList.add('scrolled');
+    }
+});
+
+document.querySelector('.video-bloom').addEventListener('ended', function() {
+  this.currentTime = 0;
+  this.play();
+});
+
+
+
+// Area de historia
+
+document.addEventListener('DOMContentLoaded', function() {
   const btnContarHistoria = document.getElementById('btnContarHistoria');
   const btnVoltar = document.getElementById('btnVoltar');
   const textoInicial = document.getElementById('textoInicial');
@@ -7,22 +32,18 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Conteúdo da história
   const historiaDaBloom = `
-    <h2>A Origem da Bloom</h2>
-    <p>Tudo começou em 1995, quando Maria das Flores, nossa fundadora, decidiu transformar seu amor por plantas em um negócio. Com apenas um pequeno espaço na garagem de sua casa, ela começou a cultivar violetas e orquídeas.</p>
-    
-    <h2>Os Primeiros Anos</h2>
-    <p>Nos primeiros cinco anos, a Bloom enfrentou muitos desafios, mas o cuidado especial de Maria com cada planta conquistou os corações dos clientes. Em 2000, mudamos para nossa primeira loja física no centro da cidade.</p>
-    
-    <h2>Expansão e Reconhecimento</h2>
-    <p>Em 2010, a Bloom foi eleita a melhor floricultura da região, e em 2015 inauguramos nosso jardim de exposições com mais de 500 espécies de flores e plantas ornamentais.</p>
-    
-    <h2>Bloom Hoje</h2>
-    <p>Atualmente, além da loja física, mantemos um viveiro com mais de 2 hectares e uma equipe apaixonada por trazer beleza e alegria para a vida das pessoas através das flores.</p>
-    
-    <div class="galeria-historia">
-      <img src="fundo-floricultura.jpg" alt="Interior da floricultura Bloom" style="max-width:100%; border-radius:4px; margin-top:15px;">
-    </div>
-  `;
+  <h2>Os Primeiros Passos</h2>
+  <p>Tudo começou em 1985, quando Clara Bloom, nossa fundadora, começou a cultivar flores em seu quintal. Com paixão e dedicação, ela transformou um pequeno hobby em um negócio familiar.</p>
+  
+  <h2>A Inauguração Oficial</h2>
+  <p>Em 27 de agosto de 1987, após dois anos de preparação, inauguramos nossa primeira loja física no coração da cidade. A Bloom nasceu com a missão de trazer beleza natural para o dia a dia das pessoas.</p>
+  
+  <h2>Crescimento e Consolidação</h2>
+  <p>Nos anos 90, nos tornamos referência em floricultura na região, conhecidos pela qualidade de nossas plantas e pelo atendimento personalizado. Em 1995, dobramos o tamanho de nossa loja original.</p>
+  
+  <h2>Bloom Hoje</h2>
+  <p>Mais de três décadas depois, mantemos o mesmo compromisso com a excelência. De um pequeno quintal para um negócio que já atendeu milhares de clientes, continuamos cultivando sonhos e espalhando alegria através das flores.</p>
+`;
   
   // Mostrar história
   btnContarHistoria.addEventListener('click', function() {
@@ -48,3 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 800); // Tempo igual ao da transição CSS
   });
 });
+
+
+
+
