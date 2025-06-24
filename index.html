@@ -12,6 +12,17 @@
     coisas mais importantes para fazer:
 
     pesquisar como fazer o sistema de carrinho funcional e a parte de produtos favoritos
+      adicionar mais produtos e ver como o carrinho se comporta
+
+      adicionar o icone de favoritos e ver se a seção de favoritos funciona
+
+      ver onde o elemento  pega a foto do produto para aparecer no carrinho 
+
+      pedir para que, ao usuario adionar um mesmo produto que já esta no carrinho de compras, que não seja adionado como se fosse outro produtos, mas sim o mesmo, mudando somente na quantidade do produto adioionado
+
+      na seção de favoritos, o usuario pode apenas favoritar uma unica vez, pq se ela clicar no favorito novamente, isso remove o item
+      
+      pedir para que, ao usuario fazer qualquer alteração no carrinho ele não se feche ao não ser que ele clique fora ou no botão de fechar
 
     fazer a seção de compras
 
@@ -19,6 +30,8 @@
 
     fazer uma capa para a seção de categorias na parte de personalizados
       mexer nos links
+
+      favicon
     -->
     <div class="container-bloom">
       <nav class="nav">
@@ -30,12 +43,52 @@
             <a href="#" class="nav-link">Login</a>
             
             <div class="nav-icons">
-              <button aria-label="Carrinho de compras" class="icon-cart"></button>
-              <button aria-label="Favoritos" class="icon-favorite"></button>
+        <!-- Botão do Carrinho com contador -->
+              <button aria-label="Carrinho de compras" class="icon-cart" id="cartButton">
+                <div class="icon-cart"></div>
+                <span class="cart-count">0</span>
+              </button>      
+              
+              <!-- Botão de Favoritos com contador -->
+              <button aria-label="Favoritos"  id="favoriteButton">
+                <div class="icon-favorite"></div>
+                <span class="favorite-count">0</span>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Painel do Carrinho (hidden por padrão) -->
+          <div class="cart-panel" id="cartPanel">
+            <div class="panel-header">
+              <h3>Seu Carrinho</h3>
+              <button class="close-panel">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+              <!-- Itens serão adicionados dinamicamente aqui -->
+              <p class="empty-message">Seu carrinho está vazio</p>
+            </div>
+            <div class="cart-summary">
+              <p>Total: <span class="cart-total">R$0,00</span></p>
+              <button class="btn-checkout">Finalizar Compra</button>
+            </div>
+          </div>
+          
+          <!-- Painel de Favoritos (hidden por padrão) -->
+          <div class="favorites-panel" id="favoritesPanel">
+            <div class="panel-header">
+              <h3>Seus Favoritos</h3>
+              <button class="close-panel">&times;</button>
+            </div>
+            <div class="favorites-items" id="favoritesItems">
+              <!-- Itens serão adicionados dinamicamente aqui -->
+              <p class="empty-message">Você não tem favoritos ainda</p>
             </div>
           </div>
         </div>
       </nav>
+
+      <!-- Notificação flutuante -->
+      <div class="notification" id="notification"></div>
 
       <section class="video-section">
         <video autoplay muted loop class="video-bloom">
@@ -115,7 +168,35 @@
       </section>
 
       <section class="products-section">
-      
+        <div class="container-products">
+          <h2>Nossos Produtos</h2>
+          
+          <div class="product-list">
+            <!-- Produto 1 -->
+            <article class="product-item">
+              <div class="product-header">
+                <h3>Rosas Colombianas</h3>
+                <button class="btn-favorite" aria-label="Favoritar produto">
+                  <span class="icon-favorite"></span>
+                </button>
+              </div>
+              
+              <div class="product-content">
+                <div class="product-image rosas-colombianas"></div>
+                <p class="product-name">Buquê Rosas Colombianas Vermelhas</p>
+                <p class="product-price">R$250,00</p>
+                
+                <div class="product-actions">
+                  <button class="btn-add-to-cart">
+                    <span class="icon-cart"></span> Adicionar
+                  </button>
+                </div>
+              </div>
+            </article>
+            
+            <!-- Mais produtos podem ser adicionados aqui -->
+          </div>
+        </div>
       </section>
       
       <section class="orders-personalized">
