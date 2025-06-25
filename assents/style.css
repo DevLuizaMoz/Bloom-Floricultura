@@ -12,11 +12,16 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  scrollbar-width: none;
+}
 
 body {
   font-family: var(--font-padrao);
   background-color: var(--background-padrao);
-  scroll-behavior: smooth;
   padding-top: 0;
 }
 .nav {
@@ -419,8 +424,6 @@ button {
   margin: 0;
   font-weight: 600;
 }
-/*espaço reservado para a seção dos produtos*/
-
 .container-products{
   max-width: 1200px;
   margin: 55px auto;

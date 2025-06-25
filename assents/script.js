@@ -19,7 +19,7 @@ document.querySelector('.video-bloom').addEventListener('ended', function() {
   this.play();
 });
 
-
+document.documentElement.style.scrollBehavior = "smooth";
 
 // Area de historia
 
