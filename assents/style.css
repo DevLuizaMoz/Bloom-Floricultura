@@ -1,100 +1,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-    --font-padrao: 'Poppins', sans-serif;
-    --background-padrao: #F2F2F2;
-    --color-bloom-padrao: #014023;
+  --font-padrao: 'Poppins', sans-serif;
+  --background-padrao: #F2F2F2;
+  --color-bloom-padrao: #014023;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    font-family: var(--font-padrao);
-    background-color: var(--background-padrao);
-    scroll-behavior: smooth;
-    padding-top: 0;
+  font-family: var(--font-padrao);
+  background-color: var(--background-padrao);
+  scroll-behavior: smooth;
+  padding-top: 0;
 }
 .nav {
-    width: 100%;
-    height: 100px;
-    background-color: var(--color-bloom-padrao);
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    opacity: 1;
-    transform: translateY(0); 
-    transition: background-color 0.3s ease;
+  width: 100%;
+  height: 100px;
+  background-color: var(--color-bloom-padrao);
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  opacity: 1;
+  transform: translateY(0); 
+  transition: background-color 0.3s ease;
 }
 .nav-container {
-    width: 100%;
-    height: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: all 0.4s ease-in-out;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.4s ease-in-out;
 }
 .nav.scrolled .nav-container {
-    justify-content: space-between; 
+  justify-content: space-between; 
 }
 .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    opacity: 0; 
-    transform: translateX(20px); 
-    transition: all 0.5s cubic-bezier(0.2, 0, 0.1, 1);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0; 
+  transform: translateX(20px); 
+  transition: all 0.5s cubic-bezier(0.2, 0, 0.1, 1);
 }
 .nav.scrolled .nav-links {
-    opacity: 0.8; 
-    transform: translateX(0);
+  opacity: 0.8; 
+  transform: translateX(0);
 }
 .logo-bloom {
-    background-image: url(logo/Bloom-logo.png);
-    width: 100px;
-    height: 100px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: all 0.5s ease;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  background-image: url(logo/Bloom-logo.png);
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.5s ease;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .nav.scrolled .logo-bloom {
-    position: static;
-    transform: translateX(0);
-    left: auto;
+  position: static;
+  transform: translateX(0);
+  left: auto;
 }
 .nav-link {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: white;
-    transition: width 0.3s ease;
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
 }
 .nav-link:hover::after {
-    width: 100%;
+  width: 100%;
 }
 /* Estilos para os painéis e notificações */
 .nav-icons {
@@ -102,23 +102,22 @@ body {
   display: flex;
   gap: 15px;
 }
-
 .nav-icons button {
   position: relative;
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 .nav-icons .cart-count,
 .nav-icons .favorite-count {
   position: absolute;
   top: -8px;
   right: -8px;
-  background: #ff4757;
-  color: white;
+  background: #F2B705;
+  color: black;
+  font-weight: 600;
   border-radius: 50%;
   width: 18px;
   height: 18px;
@@ -127,7 +126,15 @@ body {
   align-items: center;
   justify-content: center;
 }
-
+.nav-icons button .icon-cart,
+.nav-icons button .icon-favorite {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none; 
+}
 .cart-panel,
 .favorites-panel {
   position: fixed;
@@ -142,12 +149,10 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .cart-panel.active,
 .favorites-panel.active {
   right: 0;
 }
-
 .panel-header {
   padding: 15px;
   border-bottom: 1px solid #eee;
@@ -155,21 +160,18 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
 .close-panel {
   background: none;
   border: none;
   font-size: 20px;
   cursor: pointer;
 }
-
 .cart-items,
 .favorites-items {
   flex: 1;
   overflow-y: auto;
   padding: 15px;
 }
-
 .cart-item,
 .favorite-item {
   display: flex;
@@ -177,7 +179,6 @@ body {
   padding-bottom: 15px;
   border-bottom: 1px solid #eee;
 }
-
 .cart-item-image,
 .favorite-item-image {
   width: 60px;
@@ -185,100 +186,104 @@ body {
   background-size: cover;
   margin-right: 10px;
 }
-
 .cart-item-details,
 .favorite-item-details {
   flex: 1;
 }
-
 .cart-item-title,
 .favorite-item-title {
   font-weight: bold;
   margin-bottom: 5px;
 }
-
 .cart-item-price,
 .favorite-item-price {
-  color: #e84393;
+  color: var(--color-bloom-padrao);
   margin-bottom: 5px;
+  font-weight: 600;
 }
-
 .remove-item {
   background: none;
   border: none;
-  color: #ff4757;
+  color: red;
+  font-weight: 600;
   cursor: pointer;
   font-size: 12px;
 }
-
 .cart-summary {
   padding: 15px;
   border-top: 1px solid #eee;
 }
-
 .cart-total {
   font-weight: bold;
-  color: #e84393;
+  color: var(--color-bloom-padrao);
 }
-
 .btn-checkout {
   width: 100%;
   padding: 10px;
-  background: #e84393;
+  background: var(--color-bloom-padrao);
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   margin-top: 10px;
 }
-
 .empty-message {
   text-align: center;
   color: #888;
   padding: 20px 0;
 }
-
-/* Notificação */
 .notification {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
-  background: rgba(0,0,0,0.8);
-  color: white;
+  background: #F2B705;
+  color: black;
+  font-weight: 600;
   padding: 10px 20px;
   border-radius: 4px;
   z-index: 1001;
   transition: transform 0.3s ease;
 }
-
 .notification.active {
   transform: translateX(-50%) translateY(0);
 }
-.icon-cart{
-    background-image: url(geral/icons8-carrinho-de-compras-64.png);
+.add-to-cart-from-fav{
+  font-size: 0.7rem;
+  color: black;
+  font-weight: 600;
+  width: 100px;
+  margin-left: 80px;
 }
-.icon-favorite{
-    background-image: url(geral/icons8-gostei-preenchido-96.png);
+#cartButton .icon-cart {
+  background-image: url('geral/icons8-carrinho-de-compras-64.png');
+  transition: all 0.3s ease;
+}
+.icon-favorite.active {
+  background-image: url('geral/icons8-gostei-96.png');
+  filter: brightness(0) invert(1);
+}
+#favoriteButton .icon-favorite {
+  background-image: url('geral/icons8-gostei-preenchido-96.png');
 }
 .icon-cart, .icon-favorite {
-    width: 32px;
-    height: 32px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: transform 0.3s ease;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease;
 }
 .icon-cart:hover, .icon-favorite:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
+
 .cart-item-quantity-controls {
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 8px 0;
 }
-
 .cart-item-quantity-controls button {
   width: 24px;
   height: 24px;
@@ -289,32 +294,31 @@ body {
   justify-content: center;
   font-weight: bold;
 }
-
 .cart-item-quantity-controls button:hover {
-  background-color: #e84393;
+  background-color: var(--color-bloom-padrao);
   color: white;
 }
-
 .quantity-value {
   min-width: 20px;
   text-align: center;
 }
 button {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
+
 .video-bloom {
-    width: 100%;
-    height: 550px;
-    object-fit: cover;
-    display: block;
-    margin-top: 100px;
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  display: block;
+  margin-top: 100px;
 }
 .benefits-section {
   padding: 4rem 0;
@@ -338,20 +342,20 @@ button {
   margin: 0 auto 1rem;
 }
 .icon-delivery, .icon-freight, .icon-card{
-    width: 36px;
-    height: 36px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  width: 36px;
+  height: 36px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .icon-delivery{
     background-image: url(geral/icons8-delivery-time-100.png);
 }
 .icon-freight{
-    background-image: url(geral/icons8-entrega-100.png);
+  background-image: url(geral/icons8-entrega-100.png);
 }
 .icon-card{
-    background-image: url(geral/icons8-cartão-100.png);
+  background-image: url(geral/icons8-cartão-100.png);
 }
 .benefit-title {
   font-size: 1.25rem;
@@ -416,6 +420,176 @@ button {
   font-weight: 600;
 }
 /*espaço reservado para a seção dos produtos*/
+
+.container-products{
+  max-width: 1200px;
+  margin: 55px auto;
+}
+.container-products h2{
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #014023;
+}
+.container-products h3{
+  text-align: left;
+  padding: 20px;
+  font-size: 1.10rem;
+  margin-bottom: 5px;
+  color: #014023;
+}
+.product-list{
+  align-items: flex-start;
+  margin: 10px;
+  display: flex;
+}
+.product-item {
+  position: relative;
+  margin: 20px;
+  padding: 0; 
+  width: 210px;
+  overflow: hidden; 
+}
+.product-header {
+  position: absolute; 
+  top: 10px; 
+  right: 10px;
+  z-index: 1;
+}
+.product-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.icon-favorite{
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-image: url('geral/icons8-gostei-preenchido-96.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+.btn-favorite {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.product-image {
+  width: 100%;
+  height: 210px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  margin: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+.rosas-colombianas{
+  background-image: url(flores/Rosas-colombianas/Buquê\ de\ Rosas\ Colombianas\ vermelho.png);
+}
+.rosas-colombianas-mescladas{
+  background-image: url(flores/Rosas-colombianas/Buquê\ de\ Rosas\ Colombianas\ mescladas.png);
+}
+.rosas-colombianas-brancas{
+  background-image: url(flores/Rosas-colombianas/Buquê\ de\ Rosas\ Colombianas\ brancas.png);
+}
+.orquidea-premium-roxa{
+  background-image: url(flores/orquideas/Buquê\ Premium\ de\ Orq\ roxa.png);
+}
+.orquidea-premium-rosa{
+  background-image: url(flores/orquideas/Buquê\ Premium\ de\ Orq\ rosa.png);
+}
+.orquidea-premium-mista{
+  background-image: url(flores/orquideas/Buquê\ Premium\ de\ Orq\ mista.png);
+}
+.orquidea-premium-brancas{
+  background-image: url(flores/orquideas/Buquê\ Premium\ de\ Orq\ brancas.png);
+}
+.peonia-roxa{
+  background-image: url(flores/peonias/Buquê\ de\ Peônias\ roxa.png);
+}
+.peonia-pink{
+  background-image: url(flores/peonias/Buquê\ de\ Peônias\ pink.png);
+}
+.peonia-rosa{
+  background-image: url(flores/peonias/Buquê\ de\ Peônias\ \ rosa.png);
+}
+.lirios-rosas-vermelho{
+  background-image: url(flores/lirios-rosas/Buquê\ de\ Lírios\ e\ Rosas\ vermelhas.png);
+}
+.lirios-rosas-pink{
+  background-image: url(flores/lirios-rosas/Buquê\ de\ Lírios\ e\ Rosas\ pink.png);
+}
+.lirios-rosas-rosa{
+  background-image: url(flores/lirios-rosas/Buquê\ de\ Lírios\ e\ Rosa.png);
+}
+.lirios-rosa-branco{
+  background-image: url(flores/lirios-rosas/Buquê\ de\ Lírios\ e\ Rosa\ branca.png);
+}
+.caixadeluxo-2{
+  background-image: url(flores/caixas-luxo/Buquê\ em\ Caixa\ Luxuo\ 2.png);
+}
+.caixadeluxo-3{
+  background-image: url(flores/caixas-luxo/Buquê\ em\ Caixa\ Luxuo\ 3.png);
+}
+.caixadeluxo-1{
+  background-image: url(flores/caixas-luxo/Buquê\ em\ Caixa\ Luxuo.png);
+}
+.caixadeluxo-4{
+  background-image: url(flores/caixas-luxo/Buquê\ em\ Caixa\ Luxuo\ 4.png);
+}
+.caixadeluxo-5{
+  background-image: url(flores/caixas-luxo/Buquê\ Premium\ de\ Orq.png);
+}
+.content-informations-products{
+  display: flex;
+}
+.product-actions {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: flex-end;
+  height: 40px;
+}
+.informations-product{
+  width: 180px;
+  display: flex;
+  align-items: start;
+  justify-content: left;
+  flex-direction: column;
+}
+.product-name{
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: black;
+   word-break: break-all;
+}
+.product-price{
+  font-size: 0.9rem;
+  color: var(--color-bloom-padrao);
+  margin-top: 15px;
+  font-weight: 600;
+}
+.icon-cart {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background-image: url('geral/carrinho-de-compras-green.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 6px;
+  margin-top: auto; 
+  cursor: pointer;
+}
+
 
 .container-orders-personalized{
   width: 100%;
@@ -539,7 +713,6 @@ button {
 .historia-content.visible::-webkit-scrollbar {
   background-color: transparent;
 }
-
 .historia-content.visible::-webkit-scrollbar-track {
   background-color: transparent;
 }
@@ -549,7 +722,6 @@ button {
   line-height: 1.7;
   font-size: 14.5px;
 }
-
 .historia-content h2 {
   color: var(--color-bloom-padrao);
   margin-top: 20px;
@@ -651,6 +823,7 @@ button {
   border-radius: 8px;
   border: 2px solid var(--color-bloom-padrao);
 }
+
 @media (max-width: 937px) {
   .categories-grid {
     grid-template-columns: repeat(3, 1fr);

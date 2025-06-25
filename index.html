@@ -11,27 +11,38 @@
     <!--
     coisas mais importantes para fazer:
 
+  pesquisar no deepseek, mandando o javascript onde que é feito a alteração no icone do favorito e fazer a configuração
+
+  fazer o footer
+
+  mudar a palavra WHATSAPP do banner de personalizados para WHATSZAP
+
+  fazer uma capa para a seção de categorias na parte de personalizados
+  
+  favicon
+
+  mexer na barra de rolagem
+
+  mexer na RESPONSIVIDADE
+
+  entender o pq o icone do carrinho do nav sumiu - feito
+
     pesquisar como fazer o sistema de carrinho funcional e a parte de produtos favoritos
-      adicionar mais produtos e ver como o carrinho se comporta
+      adicionar mais produtos e ver como o carrinho se comporta - feito
 
-      adicionar o icone de favoritos e ver se a seção de favoritos funciona
+      adicionar o icone de favoritos e ver se a seção de favoritos funciona - feito
 
-      ver onde o elemento  pega a foto do produto para aparecer no carrinho 
+      ver onde o elemento  pega a foto do produto para aparecer no carrinho - feito
 
-      pedir para que, ao usuario adionar um mesmo produto que já esta no carrinho de compras, que não seja adionado como se fosse outro produtos, mas sim o mesmo, mudando somente na quantidade do produto adioionado
+      pedir para que, ao usuario adionar um mesmo produto que já esta no carrinho de compras, que não seja adionado como se fosse outro produtos, mas sim o mesmo, mudando somente na quantidade do produto adioionado - feito
 
-      na seção de favoritos, o usuario pode apenas favoritar uma unica vez, pq se ela clicar no favorito novamente, isso remove o item
+      na seção de favoritos, o usuario pode apenas favoritar uma unica vez, pq se ela clicar no favorito novamente, isso remove o item - FEITO
       
-      pedir para que, ao usuario fazer qualquer alteração no carrinho ele não se feche ao não ser que ele clique fora ou no botão de fechar
+      pedir para que, ao usuario fazer qualquer alteração no carrinho ele não se feche ao não ser que ele clique fora ou no botão de fechar - feito
 
     fazer a seção de compras
 
-    mudar a palavra WHATSAPP do banner de personalizados para WHATSZAP
-
-    fazer uma capa para a seção de categorias na parte de personalizados
-      mexer nos links
-
-      favicon
+    
     -->
     <div class="container-bloom">
       <nav class="nav">
@@ -121,46 +132,46 @@
       </section>
 
       <section class="product-category">
-        <h2 class="category-title">Nossos produtos</h2>
+        <h2 class="category-title">Categorias</h2>
         <div class="categories-grid">
-          <a class="category-card">
+          <a href="#rosas-colombianas" class="category-card">
             <div class="category-image">
               <img src="assents/flores/Rosas-colombianas/Buquê de Rosas Colombianas vermelho.png" alt="Rosas Colombianas" loading="lazy">
             </div>
             <h3 class="category-name">Rosas Colombianas</h3>
           </a>
 
-          <a class="category-card">
+          <a href="#orquideas" class="category-card">
             <div class="category-image">
-              <img src="assents/flores/orquideas/Buquê Premium de Orq mista.png" alt="Rosas Colombianas" loading="lazy">
+              <img src="assents/flores/orquideas/Buquê Premium de Orq mista.png" alt="Orquideas" loading="lazy">
             </div>
             <h3 class="category-name">Orquideas</h3>
           </a>
 
-          <a class="category-card">
+          <a href="#peonia" class="category-card">
             <div class="category-image">
-              <img src="assents/flores/peonias/Buquê de Peônias pink.png" alt="Rosas Colombianas" loading="lazy">
+              <img src="assents/flores/peonias/Buquê de Peônias pink.png" alt="Peonias" loading="lazy">
             </div>
             <h3 class="category-name">Peonias</h3>
           </a>
 
-          <a class="category-card">
+          <a href="#lirios-e-rosas" class="category-card">
             <div class="category-image">
-              <img src="assents/flores/lirios-rosas/Buquê de Lírios e Rosa branca.png" alt="Rosas Colombianas" loading="lazy">
+              <img src="assents/flores/lirios-rosas/Buquê de Lírios e Rosa branca.png" alt="Liríos e Rosas" loading="lazy">
             </div>
             <h3 class="category-name">Liríos e Rosas</h3>
           </a>
 
-          <a class="category-card">
+          <a href="#caixas-luxo" class="category-card">
             <div class="category-image">
-              <img src="assents/flores/caixas-luxo/Buquê em Caixa Luxuo.png" alt="Rosas Colombianas" loading="lazy">
+              <img src="assents/flores/caixas-luxo/Buquê em Caixa Luxuo.png" alt="Caixas de Luxo" loading="lazy">
             </div>
             <h3 class="category-name">Caixas de Luxo</h3>
           </a>
 
-          <a class="category-card">
+          <a href="#personalizado" class="category-card">
             <div class="category-image">
-              <img src="assents/flores/Rosas-colombianas/Buquê de Rosas Colombianas vermelho.png" alt="Rosas Colombianas" loading="lazy">
+              <img src="assents/flores/Rosas-colombianas/Buquê de Rosas Colombianas vermelho.png" alt="Personalizado" loading="lazy">
             </div>
             <h3 class="category-name">Personalizado</h3>
           </a>
@@ -170,37 +181,473 @@
       <section class="products-section">
         <div class="container-products">
           <h2>Nossos Produtos</h2>
-          
-          <div class="product-list">
-            <!-- Produto 1 -->
-            <article class="product-item">
-              <div class="product-header">
-                <h3>Rosas Colombianas</h3>
-                <button class="btn-favorite" aria-label="Favoritar produto">
-                  <span class="icon-favorite"></span>
-                </button>
-              </div>
-              
-              <div class="product-content">
-                <div class="product-image rosas-colombianas"></div>
-                <p class="product-name">Buquê Rosas Colombianas Vermelhas</p>
-                <p class="product-price">R$250,00</p>
+          <div class="content-itens-products">
+            <h3 id="rosas-colombianas">Rosas Colombianas</h3>
+            <div class="product-list">
+              <!-- Produto 1 -->
+              <article class="product-item" data-id="prod-001">
+                  <div class="product-header">
+                    <button class="btn-favorite" aria-label="Favoritar produto">
+                      <span class="icon-favorite"></span>
+                    </button>
+                  </div>
                 
-                <div class="product-actions">
-                  <button class="btn-add-to-cart">
-                    <span class="icon-cart"></span> Adicionar
+                <div class="product-content">
+                  <div class="product-image rosas-colombianas"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê Rosas Colombianas Vermelhas</p>
+                    <p class="product-price">R$250,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Produto 2 -->
+              <article class="product-item" data-id="prod-002">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
                   </button>
                 </div>
-              </div>
-            </article>
+                
+                <div class="product-content">
+                  <div class="product-image rosas-colombianas-mescladas"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê de Rosas Colombianas Mescladas</p>
+                    <p class="product-price">R$355,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Produto 3 -->
+              <article class="product-item" data-id="prod-003">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image rosas-colombianas-brancas"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê de Rosas Colombianas Brancas</p>
+                    <p class="product-price">R$375,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+          </div>
+
+          <div class="content-itens-products">
+            <h3 id="orquideas">Orquideas</h3>
+            <div class="product-list">
+              <!-- Produto 4 -->
+              <article class="product-item" data-id="prod-004">
+                  <div class="product-header">
+                    <button class="btn-favorite" aria-label="Favoritar produto">
+                      <span class="icon-favorite"></span>
+                    </button>
+                  </div>
+                
+                <div class="product-content">
+                  <div class="product-image orquidea-premium-roxa"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê Premium de Orquidea Roxa</p>
+                    <p class="product-price">R$350,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Produto 5 -->
+              <article class="product-item" data-id="prod-005">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image orquidea-premium-rosa"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê Premium de Orquidea Rosa</p>
+                    <p class="product-price">R$350,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Produto 6 -->
+              <article class="product-item" data-id="prod-006">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image orquidea-premium-mista"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê Premium de Orquidea Mista</p>
+                    <p class="product-price">R$475,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- produto 7-->
+              <article class="product-item" data-id="prod-007">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image orquidea-premium-brancas"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê Premium de Orquidea Branca</p>
+                    <p class="product-price">R$500,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+          </div>
+          
+          <div class="content-itens-products">
+            <h3 id="peonia">Peonias</h3>
+            <div class="product-list">
+              <!-- Produto 8 -->
+              <article class="product-item" data-id="prod-008">
+                  <div class="product-header">
+                    <button class="btn-favorite" aria-label="Favoritar produto">
+                      <span class="icon-favorite"></span>
+                    </button>
+                  </div>
+                
+                <div class="product-content">
+                  <div class="product-image peonia-roxa"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê de Peônias Roxas</p>
+                    <p class="product-price">R$290,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Produto 9 -->
+              <article class="product-item" data-id="prod-009">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image peonia-pink"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê de Peônias Pink</p>
+                    <p class="product-price">R$315,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Produto 10 -->
+              <article class="product-item" data-id="prod-010">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image peonia-rosa"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê de Peônias Rosa</p>
+                    <p class="product-price">R$295,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+          </div>
+
+          <div class="content-itens-products">
+            <h3 id="lirios-e-rosas">Liríos e Rosas</h3>
+            <div class="product-list">
+              <!-- Produto 11 -->
+              <article class="product-item" data-id="prod-011">
+                  <div class="product-header">
+                    <button class="btn-favorite" aria-label="Favoritar produto">
+                      <span class="icon-favorite"></span>
+                    </button>
+                  </div>
+                
+                <div class="product-content">
+                  <div class="product-image lirios-rosas-vermelho"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê de Lírios e Rosas Vermelhas</p>
+                    <p class="product-price">R$390,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Produto 12 -->
+              <article class="product-item" data-id="prod-012">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image lirios-rosas-pink"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê de Lírios e Rosas Pink</p>
+                    <p class="product-price">R$415,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Produto 13 -->
+              <article class="product-item" data-id="prod-013">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image lirios-rosas-rosa"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê de Lírios e Rosa cor Rosa</p>
+                    <p class="product-price">R$495,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- produto 14-->
+              <article class="product-item" data-id="prod-014">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image lirios-rosa-branco"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Buquê de Lírios e Rosa Branco</p>
+                    <p class="product-price">R$595,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+          </div>
+          <div class="content-itens-products">
+            <h3 id="caixas-luxo">Caixas de Luxo</h3>
+            <div class="product-list">
+              <!-- Produto 15 -->
+              <article class="product-item" data-id="prod-015">
+                  <div class="product-header">
+                    <button class="btn-favorite" aria-label="Favoritar produto">
+                      <span class="icon-favorite"></span>
+                    </button>
+                  </div>
+                
+                <div class="product-content">
+                  <div class="product-image caixadeluxo-2"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Caixa Luxo Rosas, Lìrios e Margaridas</p>
+                    <p class="product-price">R$690,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Produto 16 -->
+              <article class="product-item" data-id="prod-016">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image caixadeluxo-3"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Caixa Luxo Rosa, Folhagem e Frutos verdes</p>
+                    <p class="product-price">R$715,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- Produto 17 -->
+              <article class="product-item" data-id="prod-017">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image caixadeluxo-1"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Caixa Luxo Rosas brancas e rosas, e Cravos</p>
+                    <p class="product-price">R$795,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- produto 18-->
+              <article class="product-item" data-id="prod-018">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image caixadeluxo-4"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Caixa Luxo Rosas, Gerberas e Botões</p>
+                    <p class="product-price">R$795,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- produto 19-->
+              <article class="product-item" data-id="prod-019">
+                <div class="product-header">
+                  <button class="btn-favorite" aria-label="Favoritar produto">
+                    <span class="icon-favorite"></span>
+                  </button>
+                </div>
+                
+                <div class="product-content">
+                  <div class="product-image caixadeluxo-5"></div>
+                  <div class="content-informations-products">
+                    <div class="informations-product">
+                    <p class="product-name">Orquidea, Rosas e Folhagens</p>
+                    <p class="product-price">R$855,00</p>
+                    </div>
+                    <div class="product-actions">
+                    <button class="btn-add-to-cart">
+                      <span class="icon-cart"></span>
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+          </div>
             
             <!-- Mais produtos podem ser adicionados aqui -->
-          </div>
         </div>
       </section>
       
       <section class="orders-personalized">
-        <div class="container-orders-personalized">
+        <div id="personalizado" class="container-orders-personalized">
           <div class="banner-orders-personalized"></div>
           <a href="#" class="icon-whatszap-orders-personalized"></a>
           <div class="content-text-orders-personalized">
@@ -250,8 +697,11 @@
             <div id="map"></div>
           </div>
         </div>
-    </section>
+      </section>
 
+      <footer>
+
+      </footer>
     </div>
 
     
