@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Seção carrinho e favoritos - COM MELHORIAS
+    // Seção carrinho e favoritos
     const cartButton = document.getElementById('cartButton');
     const favoriteButton = document.getElementById('favoriteButton');
     const cartPanel = document.getElementById('cartPanel');
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
     
-    // Função para atualizar o painel do carrinho (mantida igual)
+    // Função para atualizar o painel do carrinho
     function updateCartPanel() {
         const cartItems = document.getElementById('cartItems');
         if (!cartItems) return;
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Função para atualizar o painel de favoritos (com alternância de ícone)
+    // Função para atualizar o painel de favoritos
     function updateFavoritesPanel() {
         const favoritesItems = document.getElementById('favoritesItems');
         if (!favoritesItems) return;
@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('favorites', JSON.stringify(favorites));
                 updateFavoritesPanel();
                 updateCounters();
-                updateFavoriteIcons(); // Atualiza os ícones após remoção
+                updateFavoriteIcons();
                 showNotification(`${removedItem.name} removido dos favoritos`);
             });
         });
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Função para adicionar ao carrinho (mantida igual)
+    // Função para adicionar ao carrinho
     function addToCart(product) {
         const existingItemIndex = cart.findIndex(item => item.id === product.id);
         
@@ -336,8 +336,8 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCounters();
     }
     
-    // Função para alternar favoritos (com atualização de ícones)
-    function toggleFavorite(product, button = null) {
+    // Função para alternar favoritos
+    function toggleFavorite(product) {
         const existingIndex = favorites.findIndex(item => item.id === product.id);
         
         if (existingIndex >= 0) {
@@ -352,39 +352,23 @@ document.addEventListener('DOMContentLoaded', function() {
         updateFavoritesPanel();
         updateCounters();
         updateFavoriteIcons();
-        
-        if (button) {
-            button.classList.toggle('active');
-        }
     }
     
-    // Função para atualizar o estado dos ícones de favorito
+    // Função para atualizar ícones de favorito (CORRIGIDA)
     function updateFavoriteIcons() {
-        // Atualiza o ícone principal na navbar
-        const navFavoriteIcon = document.querySelector('.nav-icons .icon-favorite');
-        if (navFavoriteIcon) {
-            if (favorites.length > 0) {
-                navFavoriteIcon.classList.add('active');
-            } else {
-                navFavoriteIcon.classList.remove('active');
-            }
-        }
-        
         // Atualiza os ícones dos produtos
-        document.querySelectorAll('.btn-favorite').forEach(button => {
-            const productElement = button.closest('.product-item');
-            if (productElement) {
-                const productId = productElement.getAttribute('data-id');
-                if (favorites.some(item => item.id === productId)) {
-                    button.classList.add('active');
-                } else {
-                    button.classList.remove('active');
-                }
+        document.querySelectorAll('.product-item').forEach(productElement => {
+            const productId = productElement.getAttribute('data-id');
+            const favoriteIcon = productElement.querySelector('.icon-favorite-products');
+            
+            if (favoriteIcon) {
+                const isFavorite = favorites.some(item => item.id === productId);
+                favoriteIcon.classList.toggle('active', isFavorite);
             }
         });
     }
     
-    // Configura os botões de produtos (com alternância de ícone)
+    // Configura os botões de produtos (CORRIGIDA)
     function setupProductButtons() {
         document.querySelectorAll('.btn-add-to-cart').forEach(button => {
             button.addEventListener('click', function() {
@@ -404,7 +388,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const product = {
                     id: productElement.getAttribute('data-id'),
-                    name: nameElement ? nameElement.textContent : 'Produto sem nome',
+                    name: nameElement?.textContent || 'Produto sem nome',
                     price: priceElement ? parseFloat(priceElement.textContent.replace('R$', '').replace(',', '.')) : 0,
                     image: imageUrl
                 };
@@ -431,17 +415,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const product = {
                     id: productElement.getAttribute('data-id'),
-                    name: nameElement ? nameElement.textContent : 'Produto sem nome',
+                    name: nameElement?.textContent || 'Produto sem nome',
                     price: priceElement ? parseFloat(priceElement.textContent.replace('R$', '').replace(',', '.')) : 0,
                     image: imageUrl
                 };
                 
-                toggleFavorite(product, this);
+                toggleFavorite(product);
             });
         });
     }
     
-    // Event Listeners para painéis (com prevenção de fechamento ao clicar dentro)
+    // Event Listeners para painéis
     if (cartButton && cartPanel) {
         cartButton.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -499,6 +483,86 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCounters();
     updateCartPanel();
     updateFavoritesPanel();
-    updateFavoriteIcons(); // Inicializa os ícones de favorito
+    updateFavoriteIcons();
     setupProductButtons();
+});
+
+document.querySelectorAll('.product-list').forEach(list => {
+  let isDragging = false;
+  let startPos = 0;
+  let currentScroll = 0;
+  let velocity = 0;
+  let animationFrame;
+  let lastTime = 0;
+  
+  // Controle de Toque
+  list.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startPos = e.touches[0].clientX;
+    currentScroll = list.scrollLeft;
+    cancelAnimationFrame(animationFrame);
+  }, { passive: true });
+  
+  list.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const x = e.touches[0].clientX;
+    const walk = (x - startPos) * 1.5; // Ajuste a sensibilidade aqui
+    list.scrollLeft = currentScroll - walk;
+  }, { passive: true });
+  
+  list.addEventListener('touchend', () => {
+    isDragging = false;
+    // Adiciona inércia
+    applyInertia();
+  }, { passive: true });
+  
+  // Controle de Mouse
+  list.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startPos = e.clientX;
+    currentScroll = list.scrollLeft;
+    list.style.cursor = 'grabbing';
+    cancelAnimationFrame(animationFrame);
+    e.preventDefault();
+  });
+  
+  list.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const x = e.clientX;
+    const walk = (x - startPos) * 2; // Ajuste a sensibilidade aqui
+    list.scrollLeft = currentScroll - walk;
+  });
+  
+  list.addEventListener('mouseup', () => {
+    isDragging = false;
+    list.style.cursor = 'grab';
+    applyInertia();
+  });
+  
+  list.addEventListener('mouseleave', () => {
+    isDragging = false;
+    list.style.cursor = 'grab';
+  });
+  
+  // Efeito de inércia
+  function applyInertia() {
+    const now = performance.now();
+    const delta = now - lastTime;
+    lastTime = now;
+    
+    if (delta > 0) {
+      velocity = (list.scrollLeft - currentScroll) / delta;
+      currentScroll = list.scrollLeft;
+      inertiaAnimation();
+    }
+  }
+  
+  function inertiaAnimation() {
+    velocity *= 0.95; // Fator de desaceleração
+    
+    if (Math.abs(velocity) > 0.5) {
+      list.scrollLeft += velocity * 16;
+      animationFrame = requestAnimationFrame(inertiaAnimation);
+    }
+  }
 });
