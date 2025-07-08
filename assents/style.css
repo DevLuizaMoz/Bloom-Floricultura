@@ -1012,7 +1012,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 220px;
+    
   }
   .content-news p{
     font-size: 1.1rem;
@@ -1072,23 +1072,5 @@ button {
   }
   .developer-footer{
     font-size: 13px;
-  }
-}
-@media (max-width: 600px) {
-  .content-historia {
-    width: 450px;
-  }
-  .btn-historia, .btn-voltar {
-    padding: 10px 18px;
-    font-size: 0.9rem;
-  }
-  
-  .historia-content.visible {
-    max-height: 70vh;
-    padding: 15px;
-  }
-  
-  .historia-content h2 {
-    font-size: 1.3rem;
   }
 }
