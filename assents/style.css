@@ -1036,6 +1036,7 @@ button {
     font-size: 12px;
   }
   .content-email-news input, .content-number-news input{
+    width: 130px;
     font-size: 13px;
   }
   .content-email-news button, .content-number-news button{
