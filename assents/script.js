@@ -1,137 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Configuração da navbar com verificação de existência
     const navbar = document.querySelector('.nav');
-    const triggerPoint = 70;
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > triggerPoint) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+    if (navbar) {
+        const triggerPoint = 70;
+        
+        function handleScroll() {
+            if (window.scrollY > triggerPoint) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         }
-    });
-    if (window.scrollY > triggerPoint) {
-        navbar.classList.add('scrolled');
-    }
-});
-
-document.querySelector('.video-bloom').addEventListener('ended', function() {
-  this.currentTime = 0;
-  this.play();
-});
-
-document.documentElement.style.scrollBehavior = "smooth";
-
-// Area de historia
-
-document.addEventListener('DOMContentLoaded', function() {
-  const btnContarHistoria = document.getElementById('btnContarHistoria');
-  const btnVoltar = document.getElementById('btnVoltar');
-  const textoInicial = document.getElementById('textoInicial');
-  const historiaContent = document.getElementById('historiaContent');
-  const conteudoHistoria = document.getElementById('conteudoHistoria');
-  
-  // Conteúdo da história
-  const historiaDaBloom = `
-  <h2>Os Primeiros Passos</h2>
-  <p>Tudo começou em 1985, quando Clara Bloom, nossa fundadora, começou a cultivar flores em seu quintal. Com paixão e dedicação, ela transformou um pequeno hobby em um negócio familiar.</p>
-  
-  <h2>A Inauguração Oficial</h2>
-  <p>Em 27 de agosto de 1987, após dois anos de preparação, inauguramos nossa primeira loja física no coração da cidade. A Bloom nasceu com a missão de trazer beleza natural para o dia a dia das pessoas.</p>
-  
-  <h2>Crescimento e Consolidação</h2>
-  <p>Nos anos 90, nos tornamos referência em floricultura na região, conhecidos pela qualidade de nossas plantas e pelo atendimento personalizado. Em 1995, dobramos o tamanho de nossa loja original.</p>
-  
-  <h2>Bloom Hoje</h2>
-  <p>Mais de três décadas depois, mantemos o mesmo compromisso com a excelência. De um pequeno quintal para um negócio que já atendeu milhares de clientes, continuamos cultivando sonhos e espalhando alegria através das flores.</p>
-`;
-  
-  // Mostrar história
-  btnContarHistoria.addEventListener('click', function() {
-    conteudoHistoria.innerHTML = historiaDaBloom;
-    
-    // Esconde o texto inicial com animação
-    textoInicial.classList.add('hidden');
-    
-    // Mostra a história com animação
-    setTimeout(function() {
-      historiaContent.classList.add('visible');
-    }, 50); // Pequeno delay para garantir a animação
-  });
-  
-  // Voltar ao texto inicial
-  btnVoltar.addEventListener('click', function() {
-    // Esconde a história com animação
-    historiaContent.classList.remove('visible');
-    
-    // Mostra o texto inicial com animação
-    setTimeout(function() {
-      textoInicial.classList.remove('hidden');
-    }, 800); // Tempo igual ao da transição CSS
-  });
-});
-
-
-//seção carrinho
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Código da navbar (mantido igual)
-    const navbar = document.querySelector('.nav');
-    const triggerPoint = 70;
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > triggerPoint) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-    if (window.scrollY > triggerPoint) {
-        navbar.classList.add('scrolled');
+        
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Verifica o estado inicial
     }
 
-    // Código do vídeo (mantido igual)
-    document.querySelector('.video-bloom')?.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play();
-    });
-
-    // Área de história (mantido igual)
-    const btnContarHistoria = document.getElementById('btnContarHistoria');
-    const btnVoltar = document.getElementById('btnVoltar');
-    const textoInicial = document.getElementById('textoInicial');
-    const historiaContent = document.getElementById('historiaContent');
-    const conteudoHistoria = document.getElementById('conteudoHistoria');
-    
-    const historiaDaBloom = `
-        <h2>Os Primeiros Passos</h2>
-        <p>Tudo começou em 1985, quando Clara Bloom, nossa fundadora, começou a cultivar flores em seu quintal. Com paixão e dedicação, ela transformou um pequeno hobby em um negócio familiar.</p>
-        
-        <h2>A Inauguração Oficial</h2>
-        <p>Em 27 de agosto de 1987, após dois anos de preparação, inauguramos nossa primeira loja física no coração da cidade. A Bloom nasceu com a missão de trazer beleza natural para o dia a dia das pessoas.</p>
-        
-        <h2>Crescimento e Consolidação</h2>
-        <p>Nos anos 90, nos tornamos referência em floricultura na região, conhecidos pela qualidade de nossas plantas e pelo atendimento personalizado. Em 1995, dobramos o tamanho de nossa loja original.</p>
-        
-        <h2>Bloom Hoje</h2>
-        <p>Mais de três décadas depois, mantemos o mesmo compromisso com a excelência. De um pequeno quintal para um negócio que já atendeu milhares de clientes, continuamos cultivando sonhos e espalhando alegria através das flores.</p>
-    `;
-    
-    if (btnContarHistoria && btnVoltar) {
-        btnContarHistoria.addEventListener('click', function() {
-            conteudoHistoria.innerHTML = historiaDaBloom;
-            textoInicial.classList.add('hidden');
-            setTimeout(function() {
-                historiaContent.classList.add('visible');
-            }, 50);
-        });
-        
-        btnVoltar.addEventListener('click', function() {
-            historiaContent.classList.remove('visible');
-            setTimeout(function() {
-                textoInicial.classList.remove('hidden');
-            }, 800);
+    // Configuração do vídeo loop com verificação
+    const videoBloom = document.querySelector('.video-bloom');
+    if (videoBloom) {
+        videoBloom.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
         });
     }
+
+    // Configuração do scroll suave
+    document.documentElement.style.scrollBehavior = "smooth";
+
 
     // Seção carrinho e favoritos
     const cartButton = document.getElementById('cartButton');
@@ -221,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
             cartTotal.textContent = `R$${total.toFixed(2)}`;
         }
 
-        // Eventos para os controles de quantidade
         document.querySelectorAll('.quantity-decrease').forEach(button => {
             button.addEventListener('click', function() {
                 const index = parseInt(this.getAttribute('data-index'));
@@ -244,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Evento para remover item
         document.querySelectorAll('.remove-item').forEach(button => {
             button.addEventListener('click', function() {
                 const index = parseInt(this.getAttribute('data-index'));
@@ -354,9 +248,8 @@ document.addEventListener('DOMContentLoaded', function() {
         updateFavoriteIcons();
     }
     
-    // Função para atualizar ícones de favorito (CORRIGIDA)
+    // Função para atualizar ícones de favorito
     function updateFavoriteIcons() {
-        // Atualiza os ícones dos produtos
         document.querySelectorAll('.product-item').forEach(productElement => {
             const productId = productElement.getAttribute('data-id');
             const favoriteIcon = productElement.querySelector('.icon-favorite-products');
@@ -368,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Configura os botões de produtos (CORRIGIDA)
+    // Configura os botões de produtos
     function setupProductButtons() {
         document.querySelectorAll('.btn-add-to-cart').forEach(button => {
             button.addEventListener('click', function() {
@@ -485,84 +378,84 @@ document.addEventListener('DOMContentLoaded', function() {
     updateFavoritesPanel();
     updateFavoriteIcons();
     setupProductButtons();
-});
 
-document.querySelectorAll('.product-list').forEach(list => {
-  let isDragging = false;
-  let startPos = 0;
-  let currentScroll = 0;
-  let velocity = 0;
-  let animationFrame;
-  let lastTime = 0;
-  
-  // Controle de Toque
-  list.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    startPos = e.touches[0].clientX;
-    currentScroll = list.scrollLeft;
-    cancelAnimationFrame(animationFrame);
-  }, { passive: true });
-  
-  list.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    const x = e.touches[0].clientX;
-    const walk = (x - startPos) * 1.5; // Ajuste a sensibilidade aqui
-    list.scrollLeft = currentScroll - walk;
-  }, { passive: true });
-  
-  list.addEventListener('touchend', () => {
-    isDragging = false;
-    // Adiciona inércia
-    applyInertia();
-  }, { passive: true });
-  
-  // Controle de Mouse
-  list.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startPos = e.clientX;
-    currentScroll = list.scrollLeft;
-    list.style.cursor = 'grabbing';
-    cancelAnimationFrame(animationFrame);
-    e.preventDefault();
-  });
-  
-  list.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    const x = e.clientX;
-    const walk = (x - startPos) * 2; // Ajuste a sensibilidade aqui
-    list.scrollLeft = currentScroll - walk;
-  });
-  
-  list.addEventListener('mouseup', () => {
-    isDragging = false;
-    list.style.cursor = 'grab';
-    applyInertia();
-  });
-  
-  list.addEventListener('mouseleave', () => {
-    isDragging = false;
-    list.style.cursor = 'grab';
-  });
-  
-  // Efeito de inércia
-  function applyInertia() {
-    const now = performance.now();
-    const delta = now - lastTime;
-    lastTime = now;
-    
-    if (delta > 0) {
-      velocity = (list.scrollLeft - currentScroll) / delta;
-      currentScroll = list.scrollLeft;
-      inertiaAnimation();
-    }
-  }
-  
-  function inertiaAnimation() {
-    velocity *= 0.95; // Fator de desaceleração
-    
-    if (Math.abs(velocity) > 0.5) {
-      list.scrollLeft += velocity * 16;
-      animationFrame = requestAnimationFrame(inertiaAnimation);
-    }
-  }
+    // Configuração do carrossel de produtos
+    document.querySelectorAll('.product-list').forEach(list => {
+        let isDragging = false;
+        let startPos = 0;
+        let currentScroll = 0;
+        let velocity = 0;
+        let animationFrame;
+        let lastTime = 0;
+        
+        // Controle de Toque
+        list.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startPos = e.touches[0].clientX;
+            currentScroll = list.scrollLeft;
+            cancelAnimationFrame(animationFrame);
+        }, { passive: true });
+        
+        list.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const x = e.touches[0].clientX;
+            const walk = (x - startPos) * 1.5;
+            list.scrollLeft = currentScroll - walk;
+        }, { passive: true });
+        
+        list.addEventListener('touchend', () => {
+            isDragging = false;
+            applyInertia();
+        }, { passive: true });
+        
+        // Controle de Mouse
+        list.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startPos = e.clientX;
+            currentScroll = list.scrollLeft;
+            list.style.cursor = 'grabbing';
+            cancelAnimationFrame(animationFrame);
+            e.preventDefault();
+        });
+        
+        list.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const x = e.clientX;
+            const walk = (x - startPos) * 2;
+            list.scrollLeft = currentScroll - walk;
+        });
+        
+        list.addEventListener('mouseup', () => {
+            isDragging = false;
+            list.style.cursor = 'grab';
+            applyInertia();
+        });
+        
+        list.addEventListener('mouseleave', () => {
+            isDragging = false;
+            list.style.cursor = 'grab';
+        });
+        
+        // Efeito de inércia
+        function applyInertia() {
+            const now = performance.now();
+            const delta = now - lastTime;
+            lastTime = now;
+            
+            if (delta > 0) {
+                velocity = (list.scrollLeft - currentScroll) / delta;
+                currentScroll = list.scrollLeft;
+                inertiaAnimation();
+            }
+        }
+        
+        function inertiaAnimation() {
+            velocity *= 0.95;
+            
+            if (Math.abs(velocity) > 0.5) {
+                list.scrollLeft += velocity * 16;
+                animationFrame = requestAnimationFrame(inertiaAnimation);
+            }
+        }
+    });
 });
